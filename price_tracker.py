@@ -148,8 +148,9 @@ class AmazonPriceTracker:
                             <p style="font-size: 16px; color: #666;">
                                 Target Price: ₹{target_price:,.2f}
                             </p>
-                            <p style="font-size: 14px; color: #666;">
-                                You save: ₹{target_price - product_info['price']:,.2f}
+                            <p style="font-size: 14px; color: {('#B12704' if product_info['price'] > target_price else '#2E8B57')};">
+                                Price Difference: ₹{abs(product_info['price'] - target_price):,.2f} 
+                                {' above target' if product_info['price'] > target_price else ' below target'}
                             </p>
                         </div>
                         <div style="margin: 20px 0;">
